@@ -1,0 +1,70 @@
+.wrapper{
+    margin:0 200px;
+    min-height: 100vh;
+}
+.Welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px ;
+}
+.Welcome h2{
+    font-weight: 400;
+}
+.table{
+    width: 100%;
+}
+.table table{
+    width: 100%;
+    /* border: 1px solid #94a3b8; */
+    border-radius: 10px;
+}
+tr{
+    margin-bottom: 10px;
+    text-align: center;
+    height: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.create-user{
+    float: right;
+    margin-bottom: 20px;
+}
+.create-user button{
+    padding: 7px;
+    color: #fff;
+    background-color: #008cff;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+td button{
+    width: 70px;
+    height: 27px;
+    background-color: #3b82f6;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.create_user{
+    width: 100%;
+    z-index: 5;
+    position: relative;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    filter: blur(0.2px);
+}
+#true{
+    filter: blur(10px);
+    z-index: -1;
+}
+.close_btn{
+    float: right;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
