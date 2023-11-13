@@ -28,3 +28,14 @@ form h2{
 .editOption{
     float: right;
 }
+.logout-home{
+    background-color: rgb(255, 230, 230)!important;
+    color: rgb(255, 61, 61)!important;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.logout-home:hover{
+    background-color: rgb(255, 96, 96)!important;
+    color: #fff!important;
+}

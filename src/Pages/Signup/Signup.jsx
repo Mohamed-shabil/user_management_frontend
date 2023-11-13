@@ -11,7 +11,7 @@ const Signup = () => {
   const [passwordConfirm,setPasswordConfirm] = useState('')
   const handleSignup = (e)=>{
     e.preventDefault();
-    console.log('name'+name,'email'+email,'phone'+phone,'P'+password,'PC'+passwordConfirm)
+    axios.defaults.withCredentials = true;
     axios.post('http://localhost:5000/signup',{name,email,phone,password,passwordConfirm}).then((res)=>{
       console.log(res);
     })

@@ -1,34 +1,38 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 import {Link} from 'react-router-dom'
 import './Login.css'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
-  const [error,setError] = useState('');
+  
+  useEffect(()=>{
+    if(location.state){
+      toast.error(location.state.message);
+    }
+
+  },[])
+
+
   const handleLogin = (e) =>{
     e.preventDefault()
     console.log(email,password)
-    axios({
-      method:'POST',
-      url:'http://127.0.0.1:5000/login',
-      data:{
-        email,
-        password
+    axios.defaults.withCredentials = true;
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
       }
-    }).then((res)=>{
-      const token = res.headers.get('Authorization');
-      localStorage.setItem('jwt',res.data.token);
-      console.log(localStorage.getItem('jwt'));
-      document.cookie = `jwt=${token}`
+    }
+    axios.post('http://localhost:5000/login',{email,password},config).then((res)=>{
       console.log(res)
       navigate('/');
     }).catch(err=>{
       console.log(err);
-      toast.error('Incorrect username or password')
+      toast.error(err.response.data.message)
     })
   }
   return (
